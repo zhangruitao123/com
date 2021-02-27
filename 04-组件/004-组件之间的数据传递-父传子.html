@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id = "app">
+  <cpn :message = "message" :age="age" :app-name="appName"></cpn>
+</div>
+
+<template id = 'cpn'>
+  <div>
+    <h1>我是标题</h1>
+    <p>我是内容喜喜</p>
+    <p>我是内容哈哈</p>
+    <h2>我是传递的数据{{message  + "-" + age + "-" + appName }} </h2>
+  </div>
+</template>
+<script src = "../vue/vue.js"></script>
+<script>
+  const cpn = {
+    template: '#cpn',
+    props: {
+      'message': String,
+      'age': String,
+      'appName': String
+    }
+  }
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'hello world',
+        name: '张三',
+        age: '18',
+        appName: "appName"
+      },
+      components: {
+        cpn
+      }
+    })
+</script>
+</body>
+</html>

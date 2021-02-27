@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <h1>{{counter}}</h1>
+  <button @click="counter--">-</button>
+  <button @click="counter++">+</button>
+  <br>
+  <button @click="sub">-</button>
+  <button @click="add">+</button>
+
+</div>
+<script src="../vue/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      counter: 0,
+    },
+    methods: {
+      add() {
+        this.counter++
+      },
+      sub() {
+        this.counter--
+      }
+    },
+    computed: {
+
+    }
+  })
+</script>
+</body>
+</html>

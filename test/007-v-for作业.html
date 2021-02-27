@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .active{
+      color: red;
+    }
+  </style>
+</head>
+<body>
+<div id = "app">
+  <ul>
+    <li v-for="(s, index) in items" :Class="{active: curIndex==index}" @click="changColor(index)">{{s}}</li>
+  </ul>
+</div>
+<script src = "../vue/vue.js"></script>
+<script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'hello world',
+        items: ['小红','小明','小花','小北'],
+        curIndex: 0,
+
+      },
+      methods: {
+        changColor(index) {
+          this.curIndex = index;
+        }
+      }
+    })
+</script>
+</body>
+</html>

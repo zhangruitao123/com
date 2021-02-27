@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id = "app">
+  <input type="checkbox" v-model="books" value="水浒传">水浒传
+  <input type="checkbox" v-model="books" value="西游记">西游记
+  <input type="checkbox" v-model="books" value="红楼梦">红楼梦
+  <input type="checkbox" v-model="books" value="三国演义">三国演义
+  <h1>你的图书有：{{books}}</h1>
+</div>
+<script src = "../vue/vue.js"></script>
+<script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'hello world',
+        books: []
+      }
+    })
+</script>
+</body>
+</html>

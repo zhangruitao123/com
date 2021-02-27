@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id = "app">
+  <input type="checkbox" value= "图书1" v-model="books">图书1
+  <input type="checkbox" value= "图书2" v-model="books">图书2
+  <input type="checkbox" value= "图书3" v-model="books">图书3
+  <input type="checkbox" value= "图书4" v-model="books">图书4
+<h1>你选择的图书是：{{books}}</h1>
+  <label :for="book" v-for="book in bookss">
+    <input type="checkbox" :id="book" :value="book" v-model="books">{{book}}
+  </label>
+  <h1>你选择的图示是：{{bookss}}</h1>
+</div>
+<script src = "../vue/vue.js"></script>
+<script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'hello world',
+        books: [],
+        bookss: ["图书1", "图书2", "图书3", "图书4", "图书5", "图书6"]
+      }
+    })
+</script>
+</body>
+</html>

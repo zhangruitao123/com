@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id = "app">
+  <calcu></calcu>
+</div>
+
+<div id = "app2">
+  <calcu2></calcu2>
+</div>
+
+
+<template id="cal">
+  <div>
+    <button @click="add">+</button>
+    <button @click="sub">-</button>
+    <h1>当前数字：{{counter}}</h1>
+  </div>
+</template>
+<template id="cal2">
+  <div>
+    <button @click="add">+</button>
+    <button @click="sub">-</button>
+    <h1>2当前数字：{{counter}}</h1>
+  </div>
+</template>
+<script src = "../vue/vue.js"></script>
+<script>
+  Vue.component("calcu", {
+    template: '#cal',
+    data() {
+      return {
+        counter: 0
+      }
+    },
+    methods: {
+      add(){
+        this.counter++
+      },
+      sub(){
+        this.counter--
+      }
+    }
+  })
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'hello world',
+      }
+    })
+
+  const app2 = new Vue({
+    el: '#app2',
+    data: {
+      name: 'nihao',
+    },
+    components: {
+      "calcu2": {
+        template: "#cal2",
+        data() {
+          return {
+            counter: 0
+          }
+        },
+        methods: {
+          add(){
+            this.counter++
+          },
+          sub(){
+            this.counter--
+          }
+        }
+      }
+    },
+
+  })
+
+</script>
+</body>
+</html>

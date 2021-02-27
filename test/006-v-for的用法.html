@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id = "app">
+  <div>
+    <!--<ul>
+      <li v-for="s in item">{{s}}</li>
+    </ul>
+    <ul>
+      <li v-for="(s,index) in item">{{s + index}}</li>
+    </ul>
+    <ul>
+      <li v-for="(value, key) in person"> {{value}} - {{key}}</li>
+    </ul>-->
+    <ul>
+      <li v-for="(value, key, index) in person"> {{key}} - {{value}} - {{index}}</li>
+    </ul>
+    <ul v-for="animal in animals">
+      <li v-for = "(value, key, index) in animal">{{key}} - {{value}} - {{index}}</li>
+    </ul>
+
+  </div>
+</div>
+<script src = "../vue/vue.js"></script>
+<script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'hello world',
+        item: ['小明','小红','小黑'],
+        person: {
+          name: '刘德华',
+          age: 33,
+          sex: '男'
+        },
+        animals: [
+          {
+            name: '狗熊',
+            age: 31,
+            sex: '雄性'
+          },
+          {
+            name: '大胜',
+            age: 500,
+            sex: '雄性'
+          },
+          {
+            name: '狐狸',
+            age: 600,
+            sex: '雌性'
+          }
+        ]
+      },
+      methods: {
+        add() {
+          console.log('aaa');
+        }
+      }
+    })
+</script>
+</body>
+</html>

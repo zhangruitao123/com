@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn :fu-number1="fuNumber1" :fu-number2="fuNumber2" @inputclickfu1="inputclickfu1" @inputclickfu2="inputclickfu2"></cpn>
+</div>
+<template id="cpn">
+  <div>
+    <p>我是那个父类中的基数数：{{fuNumber1}}</p>
+    <p>我是父类多倍数：{{fuNumber2}}</p>
+    <input :value="ziNumber1" @input="inputclick1"></input>
+    <p>我是子类集数：{{ziNumber1}}</p>
+    <input :value="ziNumber2" @input="inputclick2"></input>
+    <p>我是子类多倍数：{{ziNumber2}}</p>
+  </div>
+</template>
+<script src="../vue/vue.js"></script>
+<script>
+  const cpn = {
+    template: "#cpn",
+    props: {
+      fuNumber1: Number,
+      fuNumber2: Number
+    },
+    data() {
+      return {
+        ziNumber1: this.fuNumber1,
+        ziNumber2: this.fuNumber2
+      }
+    },
+    methods: {
+      inputclick1(event) {
+        this.ziNumber1 = event.target.value;
+        this.ziNumber2 = this.ziNumber1 * 100;
+        this.$emit("inputclickfu1", this.ziNumber1);
+        this.$emit("inputclickfu2", this.ziNumber2);
+        console.log("sss");
+      },
+      inputclick2(event) {
+        this.ziNumber2 = event.target.value;
+        this.ziNumber1 = this.ziNumber2 / 100;
+        this.$emit("inputclickfu2", this.ziNumber2);
+        this.$emit("inputclickfu1", this.ziNumber1);
+      }
+    }
+  }
+  const app = new Vue({
+    el: '#app',
+    data: {
+      fuNumber1: 10,
+      fuNumber2: 20
+    },
+    components: {
+      cpn
+    },
+    methods: {
+      inputclickfu1(number) {
+        console.log("kkk");
+        this.fuNumber1 = parseInt(number);
+      },
+      inputclickfu2(number) {
+        console.log("lll");
+        this.fuNumber2 = parseInt(number);
+      }
+    }
+  })
+</script>
+</body>
+</html>

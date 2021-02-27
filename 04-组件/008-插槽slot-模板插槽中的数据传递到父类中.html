@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn></cpn>
+  <cpn>
+    <template slot-scope="slot">
+      <span>{{slot.books1.join("+++++")}}</span>
+    </template>
+  </cpn>
+</div>
+<template id="cpn">
+  <div>
+    <slot :books1 = "books">
+      <span v-for="book in books">{{book}}</span>
+    </slot>
+
+  </div>
+</template>
+<script src="../vue/vue.js"></script>
+<script>
+
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hello world',
+    },
+    components: {
+      cpn: {
+        template: "#cpn",
+        data() {
+          return {
+            books: ['图书1', '图书2', '图书3', '图书4']
+          }
+        }
+      }
+    }
+  })
+</script>
+</body>
+</html>
